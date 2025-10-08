@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Görsel Yerleştirilmiş Arka Plan</title>
+    <!-- Buton simgeleri için Font Awesome kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- CSS Kod Bloğu -->
     <style>
         /* (1) ARKA PLAN RESMİ BAĞLANTISI (TÜM SAYFA) */
         body {
-            /* Arka plan resminizin bağlantısı */
+            /* Arka plan resminizin bağlantısı - URL'yi buraya ekleyin */
             background-image: url('https://cdn.discordapp.com/attachments/1369297711047643246/1425592685430837310/IGDIE2002.jpeg?ex=68e82626&is=68e6d4a6&hm=ea8793b0f3fe613160fb21b09f30f4b920d500102edddb5ec9af2293383b030c&');
             
             background-size: cover;
@@ -71,7 +73,67 @@
             
             z-index: 20; /* Çerçeve, PP'nin tam üstünde olmalı */
             pointer-events: none; /* Üzerindeki tıklamaları görmezden gelir */
+            box-shadow: none; 
+            border-radius: 0; 
         }
+
+        /* BUTON KONTEYNERİ STİLİ (PP ALTINA HİZALANDI) */
+        .button-container {
+            /* Sadece PP'nin genişliği kadar bir alanda butonları ortalamak için PP boyutunu kullanıyoruz */
+            width: 170px; 
+            position: absolute;
+            
+            /* Butonları PP'nin hemen altına hizala */
+            top: calc(244px + 170px + 20px); /* Afiş yüksekliği (244px) + PP yüksekliği (170px) + biraz boşluk (20px) */
+            
+            /* PP ile aynı yatay konuma hizala */
+            left: calc(50% - 693px / 2); 
+            
+            display: flex; 
+            flex-direction: column; /* Butonları alt alta sırala */
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Butonlar arası boşluk */
+            z-index: 12;
+        }
+        
+        /* Butonları alt alta ve tam genişlikte yapmak için */
+        .button-container a {
+            margin-right: 0; 
+            width: 100%; /* Konteynerin (170px) tamamını kaplasın */
+        }
+
+        /* TEK BUTON STİLİ */
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Buton içindeki metni ortala */
+            padding: 10px 15px;
+            background-color: rgba(30, 30, 30, 0.8); /* Koyu, hafif şeffaf arka plan */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px); /* Arka planı hafif bulanıklaştır */
+        }
+
+        .social-button:hover {
+            background-color: rgba(60, 60, 60, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .social-button i {
+            margin-right: 8px;
+            font-size: 18px; /* İkon boyutunu biraz büyüttüm */
+        }
+
+        /* Butonlara özel renkler */
+        .discord { color: #5865F2; }
+        .spotify { color: #1DB954; }
+        .lol { color: #f28200; } 
 
     </style>
 </head>
@@ -93,6 +155,33 @@
         alt="Yeni Görsel"
     > <!-- (3) PP RESMİ BAĞLANTISINI BURAYA YAZIN -->
 
+    <!-- YENİ ÇERÇEVE GÖRSELİ (4) -->
+    <img
+        class="frame-image"
+        src="https://placehold.co/170x170/000000/FFFFFF?text=CERCEVE+BAGLANTISI"
+        alt="Görsel Çerçeve"
+    > <!-- (4) ÇERÇEVE RESMİNİN BAĞLANTISINI BURAYA YAZIN -->
 
+    <!-- SOSYAL MEDYA BUTONLARI -->
+    <div class="button-container">486191299041689602
+        <!-- Discord Butonu -->
+        <a href="#" class="social-button" target="_blank">
+            <i class="fab fa-discord discord"></i>
+            Discord
+        </a>
+        
+        <!-- Spotify Butonu -->
+        <a href="#" class="social-button" target="_blank">https://open.spotify.com/user/mw39od7ak10bey3elmj5rnmv4?si=5cad76abd8324344
+            <i class="fab fa-spotify spotify"></i>
+            Spotify
+        </a>
+
+        <!-- League of Legends (LoL) Butonu -->
+        <a href="#" class="social-button" target="_blank">https://www.leagueofgraphs.com/summoner/tr/sonumu%20getir-zed
+            <i class="fas fa-gavel lol"></i> 
+            League of Legends
+        </a>
+    </div>
+    
 </body>
 </html>
