@@ -25,7 +25,6 @@
             padding: 0; 
             text-align: center;
             
-            /* İçerik öğelerini konumlandırmak için body'yi referans noktası yapıyoruz */
             position: relative; 
         }
 
@@ -33,14 +32,14 @@
         .banner-image {
             width: 693px;
             height: 244px;
-            object-fit: cover; /* Resmi kutuya sığdırır */
-            position: absolute; /* Mutlak konumlandırma */
-            top: 0; /* Sayfanın en üstüne yerleştir */
-            left: 50%; /* Yatay olarak ortala */
-            transform: translateX(-50%); /* Tam ortalamak için kendi genişliğinin yarısı kadar sola kaydır */
+            object-fit: cover; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            z-index: 10; /* Diğer her şeyin üstünde görünmesi için */
+            z-index: 10; 
         }
         
         /* (3) AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ YENİ GÖRSEL (170x170 PP) */
@@ -50,66 +49,47 @@
             object-fit: cover;
             position: absolute; 
             
-            /* Konumlandırma: Afişin altından 0px boşluk bırakarak yerleştir */
-            top: 244px; /* Afişin yüksekliği kadar aşağı kaydır (afişin hemen altı) */
-            left: calc(50% - 693px / 2); /* Afişin sol kenarına hizala */
+            /* Konumlandırma: Afişin hemen altı ve sol kenarına hizalı */
+            top: 244px; 
+            left: calc(50% - 693px / 2); 
             transform: none; 
             
             border-radius: 5px; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            z-index: 15; /* Çerçevenin altında kalmalı */
+            z-index: 15; 
         }
-
-        /* YENİ ÇERÇEVE GÖRSELİ STİLİ (PP'NİN TAM ÜZERİNE GELECEK) */
-        .frame-image {
-            width: 170px; 
-            height: 170px; 
-            object-fit: contain; /* Çerçeve görselini kutuya sığdırır */
-            position: absolute; 
-            
-            /* (3) Görsel ile aynı konumu kullanıyoruz */
-            top: 244px; 
-            left: calc(50% - 693px / 2); 
-            
-            z-index: 20; /* Çerçeve, PP'nin tam üstünde olmalı */
-            pointer-events: none; /* Üzerindeki tıklamaları görmezden gelir */
-            box-shadow: none; 
-            border-radius: 0; 
-        }
-
+        
         /* BUTON KONTEYNERİ STİLİ (PP ALTINA HİZALANDI) */
         .button-container {
-            /* Sadece PP'nin genişliği kadar bir alanda butonları ortalamak için PP boyutunu kullanıyoruz */
             width: 170px; 
             position: absolute;
             
             /* Butonları PP'nin hemen altına hizala */
-            top: calc(244px + 170px + 20px); /* Afiş yüksekliği (244px) + PP yüksekliği (170px) + biraz boşluk (20px) */
+            top: calc(244px + 170px + 20px); 
             
             /* PP ile aynı yatay konuma hizala */
             left: calc(50% - 693px / 2); 
             
             display: flex; 
-            flex-direction: column; /* Butonları alt alta sırala */
+            flex-direction: column; 
             justify-content: center;
             align-items: center;
-            gap: 10px; /* Butonlar arası boşluk */
+            gap: 10px; 
             z-index: 12;
         }
         
-        /* Butonları alt alta ve tam genişlikte yapmak için */
         .button-container a {
             margin-right: 0; 
-            width: 100%; /* Konteynerin (170px) tamamını kaplasın */
+            width: 100%; 
         }
 
         /* TEK BUTON STİLİ */
         .social-button {
             display: flex;
             align-items: center;
-            justify-content: center; /* Buton içindeki metni ortala */
+            justify-content: center; 
             padding: 10px 15px;
-            background-color: rgba(30, 30, 30, 0.8); /* Koyu, hafif şeffaf arka plan */
+            background-color: rgba(30, 30, 30, 0.8); 
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
@@ -117,7 +97,7 @@
             font-weight: bold;
             transition: background-color 0.3s, transform 0.1s;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px); /* Arka planı hafif bulanıklaştır */
+            backdrop-filter: blur(4px); 
         }
 
         .social-button:hover {
@@ -127,7 +107,7 @@
 
         .social-button i {
             margin-right: 8px;
-            font-size: 18px; /* İkon boyutunu biraz büyüttüm */
+            font-size: 18px; 
         }
 
         /* Butonlara özel renkler */
@@ -151,16 +131,9 @@
     <!-- YENİ 170x170 GÖRSEL - PP -->
     <img 
         class="new-image" 
-        src="https://cdn.discordapp.com/attachments/1369297711047643246/1425277835345657956/tattoosforwomen_tattoo_grunge_cyberpunk_.jpeg?ex=68e7a9ac&is=68e6582c&hm=8e632fd5ca40a10822b06e7d3d13d73702085a6a5819f19518a1fb2fa07da29f&" 
+        src="https://cdn.discordapp.com/attachments/1369297711047643246/1425593631280074872/tattoosforwomen_tattoo_grunge_cyberpunk_.jpeg?ex=68e82707&is=68e6d587&hm=b6ea7def01e264fc689507671d8c93d3c67f19f53e504cf9125fed23461d79d6&" 
         alt="Yeni Görsel"
     > <!-- (3) PP RESMİ BAĞLANTISINI BURAYA YAZIN -->
-
-    <!-- YENİ ÇERÇEVE GÖRSELİ (4) -->
-    <img
-        class="frame-image"
-        src="https://placehold.co/170x170/000000/FFFFFF?text=CERCEVE+BAGLANTISI"
-        alt="Görsel Çerçeve"
-    > <!-- (4) ÇERÇEVE RESMİNİN BAĞLANTISINI BURAYA YAZIN -->
 
     <!-- SOSYAL MEDYA BUTONLARI -->
     <div class="button-container">
