@@ -36,28 +36,41 @@
             top: 0; /* Sayfanın en üstüne yerleştir */
             left: 50%; /* Yatay olarak ortala */
             transform: translateX(-50%); /* Tam ortalamak için kendi genişliğinin yarısı kadar sola kaydır */
-            /* border: 3px solid #00ffff; <--- MAVİ ÇERÇEVE KALDIRILDI */
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             z-index: 10; /* Diğer her şeyin üstünde görünmesi için */
         }
         
-        /* AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ YENİ GÖRSEL (170x170 KARE) */
+        /* (3) AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ YENİ GÖRSEL (170x170 PP) */
         .new-image {
-            width: 170px; /* Yeni boyut */
-            height: 170px; /* Yeni boyut */
+            width: 170px; 
+            height: 170px; 
             object-fit: cover;
             position: absolute; 
             
             /* Konumlandırma: Afişin altından 0px boşluk bırakarak yerleştir */
             top: 244px; /* Afişin yüksekliği kadar aşağı kaydır (afişin hemen altı) */
             left: calc(50% - 693px / 2); /* Afişin sol kenarına hizala */
-            transform: none; /* Ortalamaya gerek yok */
+            transform: none; 
             
-            /* border: 4px solid #f97316; <--- TURUNCU ÇERÇEVE KALDIRILDI */
-            border-radius: 5px; /* Kare görünüm için küçük bir yuvarlatma */
+            border-radius: 5px; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            z-index: 15; 
+            z-index: 15; /* Çerçevenin altında kalmalı */
+        }
+
+        /* YENİ ÇERÇEVE GÖRSELİ STİLİ (PP'NİN TAM ÜZERİNE GELECEK) */
+        .frame-image {
+            width: 170px; 
+            height: 170px; 
+            object-fit: contain; /* Çerçeve görselini kutuya sığdırır */
+            position: absolute; 
+            
+            /* (3) Görsel ile aynı konumu kullanıyoruz */
+            top: 244px; 
+            left: calc(50% - 693px / 2); 
+            
+            z-index: 20; /* Çerçeve, PP'nin tam üstünde olmalı */
+            pointer-events: none; /* Üzerindeki tıklamaları görmezden gelir */
         }
 
     </style>
@@ -73,12 +86,19 @@
         alt="Yatay Afiş Görseli"
     > <!-- (2) AFİŞ RESMİ BAĞLANTISINI BURAYA YAZIN -->
 
-    <!-- YENİ 170x170 GÖRSEL - AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ -->
+    <!-- YENİ 170x170 GÖRSEL - PP -->
     <img 
         class="new-image" 
         src="https://cdn.discordapp.com/attachments/1369297711047643246/1425277835345657956/tattoosforwomen_tattoo_grunge_cyberpunk_.jpeg?ex=68e7a9ac&is=68e6582c&hm=8e632fd5ca40a10822b06e7d3d13d73702085a6a5819f19518a1fb2fa07da29f&" 
         alt="Yeni Görsel"
-    > <!-- (3) YENİ 170x170 RESMİ BAĞLANTISINI BURAYA YAZIN -->
+    > <!-- (3) PP RESMİ BAĞLANTISINI BURAYA YAZIN -->
+
+    <!-- YENİ ÇERÇEVE GÖRSELİ (4) -->
+    <img
+        class="frame-image"
+        src="https://cdn.discordapp.com/attachments/1369297711047643246/1425602766423982110/4e3b64da76966be21a3a81e437a56ba5.png?ex=68e82f89&is=68e6de09&hm=b249d84a8d53286829db539c704f75d6751c5d161b80d6aad1834f22caeffebf&"
+        alt="Görsel Çerçeve"
+    > <!-- (4) ÇERÇEVE RESMİNİN BAĞLANTISINI BURAYA YAZIN -->
     
 </body>
 </html>
