@@ -3,45 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benim Harika Arka Planım</title>
+    <title>Görsel Yerleştirilmiş Arka Plan</title>
     
     <!-- CSS Kod Bloğu -->
     <style>
-        /* (1) ARKA PLAN RESMİ BAĞLANTISINI BURAYA YAZIN */
+        /* (1) ARKA PLAN RESMİ BAĞLANTISI (TÜM SAYFA) */
         body {
-            /* Resim bağlantınızı 'url()' içindeki tırnak işaretleri arasına yazın. */
-            background-image: url(https://cdn.discordapp.com/attachments/1369297711047643246/1425592685430837310/IGDIE2002.jpeg?ex=68e82626&is=68e6d4a6&hm=ea8793b0f3fe613160fb21b09f30f4b920d500102edddb5ec9af2293383b030c&);
+            /* Arka plan resminizin bağlantısı */
+            background-image: url('https://cdn.discordapp.com/attachments/1369297711047643246/1425592685430837310/IGDIE2002.jpeg?ex=68e82626&is=68e6d4a6&hm=ea8793b0f3fe613160fb21b09f30f4b920d500102edddb5ec9af2293383b030c&');
             
-            /* Arka plan resminin tüm ekranı kaplamasını sağlar */
             background-size: cover;
-            
-            /* Resmin tekrar etmesini engeller */
             background-repeat: no-repeat;
-            
-            /* Resmin sayfa kaydırılsa bile sabit kalmasını sağlar */
             background-attachment: fixed; 
-            
-            /* Yazıların daha okunaklı olması için varsayılan arka plan rengi */
             background-color: #333; 
-            
-            /* Yazıların rengini açık yapar (arka plan koyuysa) */
             color: #fff;
-            
             font-family: Arial, sans-serif;
-            min-height: 100vh; /* Sayfanın tüm yüksekliği kaplaması için */
+            min-height: 100vh;
             margin: 0;
-            padding: 0; /* İçerik olmadığı için padding'i de kaldırdım */
+            padding: 0; 
             text-align: center;
+            
+            /* İçerik öğelerini konumlandırmak için body'yi referans noktası yapıyoruz */
+            position: relative; 
+        }
+
+        /* YATAY AFİŞ GÖRSELİ STİLİ (693x244) */
+        .banner-image {
+            width: 693px;
+            height: 244px;
+            object-fit: cover; /* Resmi kutuya sığdırır */
+            position: absolute; /* Mutlak konumlandırma */
+            top: 0; /* Sayfanın en üstüne yerleştir */
+            left: 50%; /* Yatay olarak ortala */
+            transform: translateX(-50%); /* Tam ortalamak için kendi genişliğinin yarısı kadar sola kaydır */
+            border: 3px solid #00ffff; /* Güzel görünmesi için kenarlık */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10; /* Diğer her şeyin üstünde görünmesi için */
         }
         
-        /* İçerik kutusu artık gerekli değil, bu yüzden CSS'ten de kaldırıldı. */
+        /* AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ YENİ GÖRSEL (170x170 KARE) */
+        .new-image {
+            width: 170px; /* Yeni boyut */
+            height: 170px; /* Yeni boyut */
+            object-fit: cover;
+            position: absolute; 
+            
+            /* Konumlandırma: Afişin altından 0px boşluk bırakarak yerleştir */
+            top: 244px; /* Afişin yüksekliği kadar aşağı kaydır (afişin hemen altı) */
+            left: calc(50% - 693px / 2); /* Afişin sol kenarına hizala */
+            transform: none; /* Ortalamaya gerek yok */
+            
+            border: 4px solid #f97316; 
+            border-radius: 5px; /* Kare görünüm için küçük bir yuvarlatma */
+            /* DİKKAT: Tam kare olması için border-radius: 0; yapabilirsiniz. */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 15; 
+        }
 
     </style>
 </head>
 <body>
-    <!-- 
-        Sayfanın içeriği (başlıklar ve paragraflar) kaldırıldı. 
-        Sadece arka plan görseli görünecektir.
-    -->
+    
+    <!-- GÖRSEL EKLEME KISMI -->
+    
+    <!-- YATAY AFİŞ GÖRSELİ (693x244) -->
+    <img 
+        class="banner-image" 
+        src="https://placehold.co/693x244/FF0000/FFFFFF?text=YATAY+AFIS" 
+        alt="Yatay Afiş Görseli"
+    > <!-- (2) AFİŞ RESMİ BAĞLANTISINI BURAYA YAZIN -->
+
+    <!-- YENİ 170x170 GÖRSEL - AFİŞİN SOL ALT KÖŞESİNE YERLEŞTİRİLMİŞ -->
+    <img 
+        class="new-image" 
+        src="https://cdn.discordapp.com/attachments/1369297711047643246/1425593631280074872/tattoosforwomen_tattoo_grunge_cyberpunk_.jpeg?ex=68e82707&is=68e6d587&hm=b6ea7def01e264fc689507671d8c93d3c67f19f53e504cf9125fed23461d79d6&" 
+        alt="Yeni Görsel"
+    > <!-- (3) YENİ 170x170 RESMİ BAĞLANTISINI BURAYA YAZIN -->
+    
 </body>
 </html>
